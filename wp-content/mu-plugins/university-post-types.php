@@ -63,6 +63,7 @@ function university_post_types() {
 
   // professor post type
   register_post_type('professor', array(
+    'show_in_rest' => true,
     'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
     'public' => true,
     'show_in_rest' => true, //for new UI

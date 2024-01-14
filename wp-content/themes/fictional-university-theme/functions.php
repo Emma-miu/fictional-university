@@ -1,6 +1,9 @@
 <?php 
 
+// link custom REST API
+require get_theme_file_path('/inc/search-route.php');
 
+// add custom field for WP REST API
 function university_custom_rest() {
   register_rest_field('post', 'authorName', array(
     'get_callback' => function() {return get_the_author();}
@@ -8,6 +11,7 @@ function university_custom_rest() {
 }
 add_action('rest_api_init', 'university_custom_rest');
 
+// create dynamic page banner
 function pageBanner($args = NULL) {
   
   if(!isset($args['title'])) {
@@ -37,6 +41,7 @@ function pageBanner($args = NULL) {
 </div>
 <?php }
 
+// include important files such as css, js, google font
 function university_files() {
   wp_enqueue_script('university-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
   wp_enqueue_script('university-js', get_theme_file_uri('/src/index.js'), array('jquery'), '1.0', true);
@@ -51,6 +56,7 @@ function university_files() {
 }
 add_action('wp_enqueue_scripts', 'university_files');
 
+// add custom features to theme : nav, custom image size, dynamic title, thumbnail
 function university_features() {
   register_nav_menu('footerMenu1', 'Footer Menu 1');
   register_nav_menu('footerMenu2', 'Footer Menu 2');
@@ -62,6 +68,7 @@ function university_features() {
 }
 add_action('after_setup_theme', 'university_features');
 
+// customize wp query for certain cases
 function university_adjust_queries($query) {
   if(!is_admin() AND is_post_type_archive('event') AND $query->is_main_query()) { //is_main_query = not custom query
     $today = date('Ymd');
