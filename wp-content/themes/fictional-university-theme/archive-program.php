@@ -15,7 +15,7 @@ pageBanner( array(
     ?>
   </ul>
   <hr class="section-break">
-  <p>Looking for a recap of our past events? <a href="<?php echo site_url('past-events'); ?>">Check out our Past Events archive</a></p>
+  <p>Looking for a recap of our past events? <a href="<?php echo esc_url(site_url('past-events')); ?>">Check out our Past Events archive</a></p>
 </div>
 
 <?php get_footer();?>

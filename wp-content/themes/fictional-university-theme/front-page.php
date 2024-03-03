@@ -63,7 +63,7 @@
       </div>
       <?php endwhile; wp_reset_postdata(); ?>
 
-      <p class="t-center no-margin"><a href="<?php echo site_url('blog')?>" class="btn btn--yellow">View All Blog Posts</a></p>
+      <p class="t-center no-margin"><a href="<?php echo esc_url(site_url('blog')); ?>" class="btn btn--yellow">View All Blog Posts</a></p>
     </div>
   </div>
 </div>
